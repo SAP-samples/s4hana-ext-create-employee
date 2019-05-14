@@ -32,7 +32,7 @@ As this scenario uses SOAP protocol, you might have to adapt/update wsdl file, o
 
 How to obtain support
 ---------------------
-If you have issues with this sample, please open a report using [GitHub issues](/issues).
+If you have issues with this sample, please open a report using [GitHub issues](issues).
 
 License
 -------
