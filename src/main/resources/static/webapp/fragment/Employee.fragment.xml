@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<form:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+		adjustLabelSpan="false" emptySpanXL="0" emptySpanL="4" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="1" columnsM="1"
+		singleContainerFullSize="false">
+		<Label text="Person External ID" required="true"/>
+		<Input value="{/CreditCard/Name}" liveChange="checkBankAccountStep" valueLiveUpdate="true"/>
+		<Label text="User Name"/>
+		<Input value="{/CardNumber}"/>
+		<Label text="Business Partner Role"/>
+		<Input value="{/CreditCard/SecurityCode}"/>
+		<Label text="Supplier"/>
+		<Input value="{}"/>
+		<Label text="First Name"/>
+		<Input value="{}"/>
+		<Label text="Last Name"/>
+		<Input value="{}"/>
+		<Label text="Person Full Name"/>
+		<Input value="{}"/>
+		<Label text="Gender Code"/>
+		<Input value="{}"/>
+		<Label text="Email Address"/>
+		<Input value="{}"/>
+		<Label text="Phone Number"/>
+		<Input value="{}"/>
+		<Label text="Language"/>
+		<Input value="{}"/>
+		<Label text="Bank Country"/>
+		<Input value="{}"/>
+		<Label text="Bank"/>
+		<Input value="{}"/>
+		<Label text="SWIFT Code"/>
+		<Input value="{}"/>
+		<Label text="Bank Account"/>
+		<Input value="{}"/>
+		<Label text="IBAN"/>
+		<Input value="{}"/>
+		<Label text="Payment Method"/>
+		<Input value="{}"/>
+		<Label text="Payment Currency"/>
+		<Input value="{}"/>
+		<Label text="Bank Account Holder Name"/>
+		<Input value="{}"/>
+		<Label text="Bank Control Key"/>
+		<Input value="{}"/>
+	</form:SimpleForm>
+	<Bar>
+		<contentMiddle>
+			<Button text="Submit" type="Emphasized" press="onSubmit" enabled="true"/>
+		</contentMiddle>
+	</Bar>
+</core:FragmentDefinition>

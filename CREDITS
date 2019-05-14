@@ -1,0 +1,49 @@
+This program references the following third party open source or other free download components.
+The third party licensors of these components may provide additional license rights,
+terms and conditions and/or require certain notices as described below.
+
+H2 Database Engine (com.h2database:h2:1.4.197 - http://www.h2database.com)
+Licensed under MPL 2.0 or EPL 1.0
+
+SAP S/4HANA - All (com.sap.cloud.s4hana:s4hana-all:2.5.0 - https://www.sap.com/s4sdk)
+Licensed under SAP DEVELOPER LICENSE AGREEMENT
+
+SAP S/4HANA - Test Utilities (com.sap.cloud.s4hana:testutil:2.5.0 - https://www.sap.com/s4sdk)
+Licensed under SAP DEVELOPER LICENSE AGREEMENT
+
+Cloud Platform - Connectivity (com.sap.cloud.s4hana.cloudplatform:connectivity:2.5.0 - https://www.sap.com/s4sdk)
+Licensed under SAP DEVELOPER LICENSE AGREEMENT
+
+Cloud Platform - SCP Cloud Foundry (com.sap.cloud.s4hana.cloudplatform:scp-cf:2.5.0 - https://www.sap.com/s4sdk)
+Licensed under SAP DEVELOPER LICENSE AGREEMENT
+
+springfox-swagger-ui (io.springfox:springfox-swagger-ui:2.9.2 - https://github.com/springfox/springfox)
+Licensed under The Apache Software License, Version 2.0
+
+springfox-swagger2 (io.springfox:springfox-swagger2:2.9.2 - https://github.com/springfox/springfox)
+Licensed under The Apache Software License, Version 2.0
+
+Apache HttpClient (org.apache.httpcomponents:httpclient:4.5.5 - http://hc.apache.org/httpcomponents-client)
+Licensed under Apache License, Version 2.0
+
+org.junit.jupiter:junit-jupiter-api (org.junit.jupiter:junit-jupiter-api:5.1.1 - http://junit.org/junit5/)
+Licensed under Eclipse Public License v2.0
+
+Project Lombok (org.projectlombok:lombok:1.16.20 - https://projectlombok.org)
+Licensed under The MIT License
+
+Spring Boot Configuration Processor (org.springframework.boot:spring-boot-configuration-processor:2.0.4.RELEASE - https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-tools/spring-boot-configuration-processor)
+Licensed under Apache License, Version 2.0
+
+Spring Boot AOP Starter (org.springframework.boot:spring-boot-starter-aop:2.0.4.RELEASE - https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-aop)
+Licensed under Apache License, Version 2.0
+
+Spring Boot Data JPA Starter (org.springframework.boot:spring-boot-starter-data-jpa:2.0.4.RELEASE - https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-data-jpa)
+Licensed under Apache License, Version 2.0
+
+Spring Boot Test Starter (org.springframework.boot:spring-boot-starter-test:2.0.4.RELEASE - https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-test)
+Licensed under Apache License, Version 2.0
+
+Spring Boot Web Starter (org.springframework.boot:spring-boot-starter-web:2.0.4.RELEASE - https://projects.spring.io/spring-boot/#/spring-boot-parent/spring-boot-starters/spring-boot-starter-web)
+Licensed under Apache License, Version 2.0
+

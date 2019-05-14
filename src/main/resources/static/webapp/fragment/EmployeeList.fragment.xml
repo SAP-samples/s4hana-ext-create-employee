@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog title="Employees" afterClose="onEmpDialogclose">
+		<content>
+			<NavContainer id="navCon" width="98%" height="16em" class="navContainerControl sapUiSmallMarginBottom">
+				<pages>
+					<Page showHeader="false" id="p1" title="Page 1">
+						<VBox>
+							<List items="{path: 'usersModel>/'}">
+								<items>
+									<StandardListItem press="onItemPressed" title="{usersModel>user/userID}" description="{usersModel>user/userName}" iconDensityAware="false"
+										iconInset="false" type="Navigation"/>
+								</items>
+							</List>
+						</VBox>
+					</Page>
+					<Page showHeader="false" id="p2" title="Page 2" showNavButton="true">
+						<VBox>
+							<List id="empListRoles" mode="MultiSelect">
+								<items>
+								</items>
+							</List>
+						</VBox>
+					</Page>
+				</pages>
+			</NavContainer>
+			<VBox class="sapUiSmallMargin">
+				<Bar>
+					<contentMiddle>
+						<Button text="Exit" id="sbmtButton" icon="" press="onEmpDialogclose" iconFirst="true" type="Emphasized" enabled="true"/>
+					</contentMiddle>
+				</Bar>
+			</VBox>
+		</content>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,38 @@
+{
+	"externalId": null,
+	"personalInformation": {
+		"academicSecondTitle": null,
+		"academicTitle": null,
+		"additionalLastName": null,
+		"birthName": null,
+		"firstName": null,
+		"formOfAddress": null,
+		"gender": null,
+		"initials": null,
+		"language": null,
+		"lastName": null,
+		"lastNamePrefix": null,
+		"lastNameSecondPrefix": null,
+		"middleName": null,
+		"nameSupplement": null,
+		"nickName": null
+	},
+	"userName": null,
+	"workInformation": {
+		"building": null,
+		"companyCode": null,
+		"costCenter": null,
+		"email": null,
+		"phone": {
+			"countryDialingCode": null,
+			"phoneNumber": null,
+			"phoneNumberAreaID": null,
+			"phoneNumberExtension": null,
+			"type": null
+		},
+		"roomNumber": null,
+		"startDate": null,
+		"endDate": null
+	},
+	"roles": []
+}

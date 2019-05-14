@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.sap.csc</groupId>
+	<artifactId>employee-creation</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>employee-creation</name>
+	<description>Employee Creation API that uses the Replicate Basic Master Data for Workforce from External HR Systems
+        SAP S/4HANA Cloud
+    </description>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
+		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+		<h2.version>1.4.197</h2.version>
+		<s4hana.sdk.version>2.5.0</s4hana.sdk.version>
+		<lombok.version>1.18.4</lombok.version>
+		<apache.http.version>4.5.5</apache.http.version>
+	</properties>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.4.RELEASE</version>
+	</parent>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.projectlombok</groupId>
+				<artifactId>lombok</artifactId>
+				<version>${lombok.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${apache.http.version}</version>
+			</dependency>
+			<!--H2 In-Memory Database -->
+			<dependency>
+				<groupId>com.h2database</groupId>
+				<artifactId>h2</artifactId>
+				<version>${h2.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.vaadin.external.google</groupId>
+					<artifactId>android-json</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		
+		<!--H2 In-Memory Database -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<!-- SAP S/4HANA Cloud SDK dependencies for CloudFoundry -->
+		<dependency>
+			<groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+			<artifactId>scp-cf</artifactId>
+			<version>${s4hana.sdk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.cloud.s4hana</groupId>
+			<artifactId>s4hana-all</artifactId>
+			<version>${s4hana.sdk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.cloud.s4hana.cloudplatform</groupId>
+			<artifactId>connectivity</artifactId>
+			<version>${s4hana.sdk.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sap.cloud.s4hana</groupId>
+			<artifactId>testutil</artifactId>
+			<version>${s4hana.sdk.version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!--Swagger-UI -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>${springfox-swagger-ui.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>${springfox-swagger2.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.axis2</groupId>
+				<artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+				<version>1.7.8</version>
+				<executions>
+					<execution>
+                    <?m2e execute onConfiguration?>
+						<id>query</id>
+						<goals>
+							<goal>wsdl2code</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<packageName>com.sap.csc.employeecreationbe.business.query</packageName>
+							<wsdlFile>src/main/resources/static/businessuser/QUERYBUSINESSUSERIN.wsdl</wsdlFile>
+							<databindingName>adb</databindingName>
+							<syncMode>sync</syncMode>
+							<unpackClasses>true</unpackClasses>
+						</configuration>
+					</execution>
+					<execution>
+                      <?m2e execute onConfiguration?>
+						<id>manage</id>
+						<goals>
+							<goal>wsdl2code</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<packageName>com.sap.csc.employeecreationbe.business.manage</packageName>
+							<wsdlFile>src/main/resources/static/businessuser/MANAGEBUSINESSUSERIN.wsdl</wsdlFile>
+							<databindingName>adb</databindingName>
+							<syncMode>sync</syncMode>
+							<unpackClasses>true</unpackClasses>
+						</configuration>
+					</execution>
+					<execution>
+                      <?m2e execute onConfiguration?>
+						<id>workforce</id>
+						<goals>
+							<goal>wsdl2code</goal>
+						</goals>
+						<phase>generate-sources</phase>
+						<configuration>
+							<packageName>com.sap.csc.employeecreationbe.workforce</packageName>
+							<wsdlFile>src/main/resources/static/employee/WORKFORCEPERSONMASTERDATAREPLI.wsdl</wsdlFile>
+							<databindingName>adb</databindingName>
+							<syncMode>sync</syncMode>
+							<unpackClasses>true</unpackClasses>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<dependencies>
+					<dependency>
+						<groupId>org.junit.platform</groupId>
+						<artifactId>junit-platform-surefire-provider</artifactId>
+						<version>1.1.0</version>
+					</dependency>
+					<dependency>
+						<groupId>org.junit.jupiter</groupId>
+						<artifactId>junit-jupiter-engine</artifactId>
+						<version>5.1.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>8</source>
+					<target>8</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>${project.artifactId}</finalName>
+	</build>
+</project>

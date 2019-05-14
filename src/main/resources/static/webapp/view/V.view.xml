@@ -1,0 +1,36 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" height="100%"
+	controllerName="sap.com.employee.ImportemployeeImport.controller.V" xmlns="sap.m">
+	<NavContainer id="wizardNavContainer">
+		<pages>
+			<Page id="wizardContentPage" showHeader="true" title="{i18n>appTitle}">
+				<content>
+					<Wizard width="auto" id="EmployeeWizard" complete="completedHandler" enableBranching="true">
+						<WizardStep id="EmployeeNumberStep" title="Employee Mode" subsequentSteps="BasicEmployeeStep, BasicTableStep" complete="goToEmployeeStep"
+							icon="sap-icon://employee-pane">
+							<HBox alignItems="Center" justifyContent="Center" width="auto">
+								<SegmentedButton selectionChange="setEmployeeNumber" id="employeeMethodSelection" selectedKey="{/selectedMode}">
+									<items>
+										<SegmentedButtonItem key="Single" icon="sap-icon://employee" text="Single Employee" width="210px"/>
+										<SegmentedButtonItem key="Multiple" icon="sap-icon://family-care" text="Multiple Employees" width="210px"/>
+									</items>
+								</SegmentedButton>
+							</HBox>
+						</WizardStep>
+						<WizardStep id="BasicEmployeeStep" title="Basic Employee" activate="checkBasicEmployeeStep" icon="sap-icon://employee">
+							<core:Fragment fragmentName="sap.com.employee.ImportemployeeImport.fragment.SingleBasicEmployee" type="XML"/>
+						</WizardStep>
+						<WizardStep id="BasicTableStep" title="Multiple Employee Creation" activate="checkBasicTableStep" icon="sap-icon://family-care">
+							<core:Fragment fragmentName="sap.com.employee.ImportemployeeImport.fragment.MultipleBasicEmployee" type="XML"/>
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="Cancel" press="handleWizardCancel"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</NavContainer>
+</mvc:View>

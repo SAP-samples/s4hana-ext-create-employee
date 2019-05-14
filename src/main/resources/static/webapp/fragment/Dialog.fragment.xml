@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog noDataText="No Products Found" title="Business Roles" growing="false" search="handleSearch" confirm="handleConfirm"
+		cancel="handleClose" items="{ path : 'rolesModel>/Roles', sorter : { path : 'description', descending : false } }" id="tableRoleDialog">
+		<ColumnListItem>
+			<cells>
+				<Text text="{rolesModel>description}"/>
+				<Text text="{rolesModel>id}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="Business Role"/>
+				</header>
+			</Column>
+			<Column hAlign="End">
+				<header>
+					<Text text="Business Role ID"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

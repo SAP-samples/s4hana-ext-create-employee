@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog noDataText="No Users Found" title="Select User" search="handleSearchUser" confirm="handleConfirmSelect" cancel="handleClose"
+		items="{path: 'usersModel>/'}">
+		<StandardListItem title="{usersModel>user/userID}" description="{usersModel>user/userName}" iconDensityAware="false" iconInset="false"
+			type="Active"/>
+	</SelectDialog>
+</core:FragmentDefinition>

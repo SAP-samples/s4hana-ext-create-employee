@@ -1,0 +1,74 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns="sap.m">
+	<VBox class="sapUiSmallMargin">
+		<form:SimpleForm id="SingleBasic" editable="true" layout="ResponsiveGridLayout" labelSpanXL="4" labelSpanL="3" labelSpanM="4"
+			labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="2" emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2"
+			singleContainerFullSize="false">
+			<form:toolbar>
+				<Toolbar id="TB1">
+					<ToolbarSpacer/>
+					<Button text="Copy Roles From User" id="coppyFromUserButton" icon="sap-icon://role" iconFirst="true" type="Emphasized"
+						press="handleCopyFromUser" enabled="true"/>
+					<Button text="Add Roles" id="rolesButton" icon="sap-icon://role" iconFirst="true" type="Emphasized" press="onSubmitRolesDialog"
+						enabled="true">
+						<customData>
+							<core:CustomData key="multi" value="true"/>
+						</customData>
+					</Button>
+				</Toolbar>
+			</form:toolbar>
+			<form:content>
+				<core:Title text=""/>
+				<Label text="Person External ID" required="true"/>
+				<Input value="{postM>/externalId}" validationError="handleValidationWarning" change="onInputChange" required="true"/>
+				<Label text="User Name" required="true"/>
+				<Input value="{postM>/userName}" required="true" change="onInputChange"/>
+				<Label text="Business Partner Role" required="true"/>
+				<Label text="First Name" required="true"/>
+				<Input value="{postM>/personalInformation/firstName}" required="true" change="onInputChange"/>
+				<Label text="Last Name" required="true"/>
+				<Input value="{postM>/personalInformation/lastName}" required="true" change="onInputChange"/>
+				<Label text="Gender Code" required="true"/>
+				<ComboBox items="{oModel>/Genders}" id="cmbBoxGender" selectedKey="{postM>/personalInformation/gender}" selectionChange="onInputChange">
+					<items>
+						<core:Item text="{oModel>description}" key="{oModel>key}"/>
+					</items>
+				</ComboBox>
+				<Label text="Email Address"/>
+				<Input value="{postM>/workInformation/email}" placeholder="name@sap.com"/>
+				<core:Title text=""/>
+				<Label text="Phone Number"/>
+				<Input value="{postM>/workInformation/phone/phoneNumber}"/>
+				<Label text="Correspondence Language"/>
+				<ComboBox items="{oModel>/Languages}" id="cmbBoxLang" selectedKey="{postM>/personalInformation/language}" selectionChange="onInputChange">
+					<items>
+						<core:Item text="{oModel>description}" key="{oModel>code}"/>
+					</items>
+				</ComboBox>
+				<Label text="Company Code" required="true"/>
+				<ComboBox items="{oModel>/CompanyCode}" id="cmbBoxCCode" selectedKey="{postM>/workInformation/companyCode}" change="onCompCodeChange"
+					selectionChange="onInputChange">
+					<items>
+						<core:Item text="{oModel>name}" key="{oModel>code}"/>
+					</items>
+				</ComboBox>
+				<Label text="Cost Center"/>
+				<ComboBox items="{oModel>/CostCenter}" id="cmbBoxCCenter" selectedKey="{postM>/workInformation/costCenter}">
+					<items>
+						<core:Item text="{oModel>name}" key="{oModel>code}"/>
+					</items>
+				</ComboBox>
+				<Label text="Start Date" required="true"/>
+				<DatePicker value="{postM>/workInformation/startDate}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd" required="true"
+					change="onInputChange"/>
+				<Label text="End Date" required="false"/>
+				<Input value="9999-12-31" required="false" editable="false"/>
+			</form:content>
+		</form:SimpleForm>
+		<Bar>
+			<contentMiddle>
+				<Button text="Submit" id="sbmtButton" icon="sap-icon://paper-plane" iconFirst="true" type="Emphasized" press="onSubmit" enabled="false"/>
+			</contentMiddle>
+		</Bar>
+		<items/>
+	</VBox>
+</core:FragmentDefinition>

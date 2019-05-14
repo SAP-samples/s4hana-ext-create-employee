@@ -1,0 +1,17 @@
+---
+applications:
+
+- name: employee-creation
+  memory: 1024M
+  path: target/employee-creation.jar
+  random-route: true
+  buildpacks:
+  - java_buildpack
+  timeout: 600
+  env:
+    ALLOW_MOCKED_AUTH_HEADER: true
+    TARGET_RUNTIME: main
+    SPRING_PROFILES_ACTIVE: 'cloud'
+  services:
+  - destinations-create-employee
+  - xsuaa-create-employee

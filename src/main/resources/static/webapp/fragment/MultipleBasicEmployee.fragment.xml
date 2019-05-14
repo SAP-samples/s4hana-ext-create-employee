@@ -1,0 +1,141 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+	<VBox class="sapUiSmallMargin">
+		<Bar design="SubHeader">
+			<contentRight>
+				<Button text="Copy Roles From User" id="coppyFromUserButton2" icon="sap-icon://role" iconFirst="true" type="Emphasized"
+					press="handleCopyFromUser" enabled="true"/>
+				<Button text="Add Roles" type="Emphasized" icon="sap-icon://role" iconFirst="true" width="auto" enabled="true" visible="true"
+					iconDensityAware="false" press="onSubmitRolesDialog">
+					<customData>
+						<core:CustomData key="multi" value="true"/>
+					</customData>
+				</Button>
+				<Button text="New Entry" type="Emphasized" icon="sap-icon://add-employee" iconFirst="true" width="auto" enabled="true" visible="true"
+					iconDensityAware="false" press="onNewRecordPress"/>
+			</contentRight>
+		</Bar>
+		<ScrollContainer horizontal='true'>
+			<Table id="mainTable" width="100%" noDataText="No data" mode="MultiSelect" showSeparators="All" growing="true" growingThreshold="20"
+				growingScrollToLoad="true" items="{path:'multiModel>/Info'}">
+				<columns>
+					<Column width="100px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Person External ID *" width="auto" maxLines="3" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="User Name" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="First Name" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Last Name" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Gender Code" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Email Address" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Phone Number" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Center" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Correspondence Language" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Company Code" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Cost Center" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="Start Date" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+					<Column width="100px" hAlign="Left" vAlign="Top" minScreenWidth="Tablet" demandPopin="true" popinDisplay="Inline" mergeDuplicates="false">
+						<header>
+							<Text text="End Date" width="auto" maxLines="2" wrapping="true" textAlign="Begin" textDirection="Inherit"/>
+						</header>
+						<footer/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Active">
+						<cells>
+							<Input value="{multiModel>externalId}" editable="{multiModel>editable}" visible="true" width="auto" required="true" change="changeTest"/>
+							<Input value="{multiModel>userName}" editable="{multiModel>editable}" visible="true" width="auto" required="true"/>
+							<Input value="{multiModel>personalInformation/firstName}" editable="{multiModel>editable}" visible="true" width="auto"/>
+							<Input value="{multiModel>personalInformation/lastName}" editable="{multiModel>editable}" visible="true" width="auto"/>
+							<ComboBox items="{path:'oModel>/Genders', templateShareable : true}" selectedKey="{multiModel>personalInformation/gender}"
+								editable="{multiModel>editable}">
+								<items>
+									<core:Item text="{oModel>description}" key="{oModel>key}"/>
+								</items>
+							</ComboBox>
+							<Input value="{multiModel>workInformation/email}" placeholder="name@sap.com" editable="{multiModel>editable}" visible="true" width="auto"/>
+							<Input value="{multiModel>workInformation/phone/phoneNumber}" editable="{multiModel>editable}" visible="true" width="auto"/>
+							<ComboBox items="{path:'oModel>/Languages', templateShareable : true}" selectedKey="{multiModel>personalInformation/language}"
+								editable="{multiModel>editable}">
+								<items>
+									<core:Item text="{oModel>description}" key="{oModel>code}"/>
+								</items>
+							</ComboBox>
+							<ComboBox items="{path:'oModel>/CompanyCode', templateShareable : true}" selectedKey="{multiModel>workInformation/companyCode}"
+								selectionChange="onCompCodeChange" editable="{multiModel>editable}">
+								<items>
+									<core:Item text="{oModel>name}" key="{oModel>code}"/>
+								</items>
+							</ComboBox>
+							<ComboBox items="{path:'multiModel>modelCostCenter', templateShareable : true}" selectedKey="{multiModel>workInformation/costCenter}"
+								editable="{multiModel>editable}">
+								<items>
+									<core:Item text="{multiModel>name}" key="{multiModel>code}"/>
+								</items>
+							</ComboBox>
+							<DatePicker value="{multiModel>workInformation/startDate}" valueFormat="yyyy-MM-dd" displayFormat="yyyy-MM-dd"
+								editable="{multiModel>editable}"/>
+							<Input value="9999-12-31" required="false" editable="false"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</ScrollContainer>
+	</VBox>
+	<Bar>
+		<contentMiddle>
+			<Button text="Submit" id="sbmtButton2" type="Emphasized" icon="sap-icon://paper-plane" iconFirst="true" press="onMultiSubmit" enabled="true"/>
+		</contentMiddle>
+	</Bar>
+</core:FragmentDefinition>

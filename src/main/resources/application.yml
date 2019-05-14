@@ -1,0 +1,34 @@
+---
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:s4Db
+    username: user
+    password: password
+server:
+  port: 8081
+  error:
+    whitelabel:
+      enabled: false
+#Duration in milliseconds
+role-assignment-period: 300000
+---
+
+spring:
+  profiles: dev,test
+
+destination-list:
+  destinations:
+  - name: REPLICATE_WORKFORCE
+    user: XXXXXXX
+    password: XXXXXX
+    url: https://myXXXXXX-api.s4hana.ondemand.com
+
+  - name: SCIM_USER_IDP
+    user: XXXXXX
+    password: XXXXXX
+    url: https://XXXXXX.accountsXXX.ondemand.com/service/scim/Users
+
