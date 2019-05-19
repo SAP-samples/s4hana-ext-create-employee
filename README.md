@@ -1,5 +1,5 @@
 # SAP S/4HANA Cloud Extensions - SAP S/4HANA Cloud App for One-Click User Creation
-This repository contains the sample code for the [SAP S/4HANA Cloud App for One-Click User Creation tutorial](http://tiny.cc/s4-create-employee-app).
+This repository contains the sample code for the [SAP S/4HANA Cloud App for One-Click User Creation tutorial](http://tiny.cc/s4-create-employee).
 
 *This code is only one part of the tutorial, so please follow the tutorial before attempting to use this code.*
 
