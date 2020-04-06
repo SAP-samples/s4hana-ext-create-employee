@@ -779,6 +779,7 @@
                     <xsd:element name="TimeZoneCode" minOccurs="0" type="BU_TimeZoneCode"/>
                     <xsd:element name="TimeFormatCode" minOccurs="0" type="TimeFormatCode"/>
                     <xsd:element name="LockedIndicator" minOccurs="0" type="NOSC_UserStatusCode"/>
+                    <xsd:element name="ValidityPeriod" type="CLOSED_DatePeriod"/>
                     <xsd:element name="Role" minOccurs="0" maxOccurs="unbounded" type="RoleResponse"/>
                 </xsd:sequence>
             </xsd:complexType>
