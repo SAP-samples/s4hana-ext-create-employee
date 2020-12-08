@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/s4hana-ext-create-employee)](https://api.reuse.software/info/github.com/SAP-samples/s4hana-ext-create-employee)
+
 # SAP S/4HANA Cloud Extensions - SAP S/4HANA Cloud App for One-Click User Creation
 This repository contains the sample code for the [SAP S/4HANA Cloud App for One-Click User Creation tutorial](http://tiny.cc/s4-create-employee).
 
