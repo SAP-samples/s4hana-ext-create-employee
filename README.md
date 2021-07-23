@@ -17,7 +17,7 @@ SAP Extensibility Explorer is a central place where anyone involved in the exten
 
 Requirements
 -------------
-- An account in SAP Cloud Platform with a subaccount in the _Cloud Foundry_ environment.
+- An account in SAP Business Technology Platform (BTP) with a subaccount in the _Cloud Foundry_ environment.
 - [Java SE **8** Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html) and [Apache Maven](http://maven.apache.org/download.cgi) to build the application.
 - [Cloud Foundry Command Line Interface (CF CLI)](https://docs.cloudfoundry.org/cf-cli/install-go-cli.html) tool in case you want to deploy the application to Cloud Foundry.
 - An SAP S/4HANA Cloud tenant. This is a commercial paid product.
