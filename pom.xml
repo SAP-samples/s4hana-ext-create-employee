@@ -23,7 +23,7 @@
 		<h2.version>1.4.197</h2.version>
 		<s4hana.sdk.version>2.28.0</s4hana.sdk.version>
 		<lombok.version>1.18.4</lombok.version>
-		<apache.http.version>4.5.5</apache.http.version>
+		<apache.http.version>4.5.13</apache.http.version>
 	</properties>
 
 	<parent>
