@@ -20,7 +20,7 @@
 		<java.version>1.8</java.version>
 		<springfox-swagger-ui.version>2.9.2</springfox-swagger-ui.version>
 		<springfox-swagger2.version>2.9.2</springfox-swagger2.version>
-		<h2.version>1.4.197</h2.version>
+		<h2.version>2.2.220</h2.version>
 		<s4hana.sdk.version>2.28.0</s4hana.sdk.version>
 		<lombok.version>1.18.4</lombok.version>
 		<apache.http.version>4.5.5</apache.http.version>
